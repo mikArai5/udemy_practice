@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 export const UserIconWithName = (props) => {
-    const { image, name } = props;
+    const { image, name, isAdmin } = props;
     return (
         <SContainer>
             <SImg 
@@ -12,6 +12,7 @@ export const UserIconWithName = (props) => {
                 width={160}
             />
             <SName>{name}</SName>
+            { isAdmin && <SEdit>編集</SEdit> }
         </SContainer>
     )
 };
@@ -29,4 +30,10 @@ const SName = styled.p`
     font-weight: bold;
     margin: 0;
     color: #40514e;
+`;
+
+const SEdit = styled.span`
+    text-decoration: underline;
+    color: #aaa;
+    cursor: pointer;
 `;
